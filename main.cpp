@@ -7,12 +7,16 @@
 //
 
 #include <iostream>
+#include "arbres.h"
+
+using namespace std;
 
 int main(int argc, const char * argv[])
 {
 
     // insert code here...
-    std::cout << "Hello, World!\n";
+    cout << "Hello, World!\n";
+    bienLeBonjour();
     return 0;
 }
 
