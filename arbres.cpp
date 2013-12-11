@@ -7,9 +7,18 @@
 //
 #include <iostream>
 #include "arbres.h"
+using namespace std;
+
+
+// Description de nos arbres, avec une lettre, un frère et un fils
+typedef struct arbre{
+    char alpha          ;
+    struct arbre * frere;
+    struct arbre * fils ;
+} t_maillon, * ptarbre  ;
 
 int bienLeBonjour(){
-    std::cout << "Bien le bonjour chez vous !";
+    cout << "Bien le bonjour chez vous !";
     
     return 1;
 }
