@@ -9,6 +9,15 @@
 #ifndef projet_algo_arbres_h
 #define projet_algo_arbres_h
 
-int bienLeBonjour();
+// Description de nos arbres, avec une lettre, un frère et un fils
+typedef struct arbre{
+    char alpha          ;
+    struct arbre * frere;
+    struct arbre * fils ;
+} t_maillon, * ptarbre  ;
+
+
+
+int creationarbre();
 
 #endif

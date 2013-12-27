@@ -10,15 +10,16 @@
 using namespace std;
 
 
-// Description de nos arbres, avec une lettre, un frère et un fils
-typedef struct arbre{
-    char alpha          ;
-    struct arbre * frere;
-    struct arbre * fils ;
-} t_maillon, * ptarbre  ;
+int creationarbre(){
 
-int bienLeBonjour(){
-    cout << "Bien le bonjour chez vous !";
+    arbre dico;
+    
+    
+    dico -> alpha = 'c';
+    dico.fils =
+    
+    
+    
     
     return 1;
 }
