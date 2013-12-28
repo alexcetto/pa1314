@@ -11,13 +11,16 @@
 
 // Description de nos arbres, avec une lettre, un frère et un fils
 typedef struct arbre{
-    char alpha          ;
+    char c          ;
     struct arbre * frere;
     struct arbre * fils ;
-} t_maillon, * ptarbre  ;
+} maillon, * ptarbre  ;
 
 
 
 int creationarbre();
+void affichage(char mot[], int i, ptarbre arbre);
+bool recherche(char mot[], ptarbre arbre);
+ptarbre ajout(char mot[], ptarbre arbre);
 
 #endif
