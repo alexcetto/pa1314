@@ -13,10 +13,7 @@ using namespace std;
 int creationarbre(){
 
     arbre dico;
-    
-    
-    dico -> alpha = 'c';
-    dico.fils =
+ 	
     
     
     
