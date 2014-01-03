@@ -8,13 +8,14 @@
 
 #include <iostream>
 #include "arbres.h"
+#include "affichage.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
 
-    // insert code here...
+    menu();
     cout << "Hello, World!\n";
     return 0;
 }

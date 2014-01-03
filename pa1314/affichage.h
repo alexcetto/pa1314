@@ -9,6 +9,7 @@
 #ifndef projet_algo_affichage_h
 #define projet_algo_affichage_h
 
-
+void menu();
+int direction(int c);
 
 #endif

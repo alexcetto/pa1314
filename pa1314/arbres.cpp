@@ -9,7 +9,10 @@
 #include "arbres.h"
 using namespace std;
 
-
+ptarbre creationarbre(){
+	ptarbre arbre = NULL;
+	return arbre;
+}
 
 void affichage(char mot[], int i, ptarbre arbre){
 	if(arbre == NULL) return;
