@@ -1,3 +1,4 @@
 *.o
 pa1314/*.o
 exec
+*.zip
