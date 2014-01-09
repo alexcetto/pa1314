@@ -9,6 +9,7 @@
 #include <iostream>
 #include "arbres.h"
 #include "affichage.h"
+#include "importationArbre.h"
 
 using namespace std;
 
