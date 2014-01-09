@@ -126,12 +126,14 @@ ptarbre ajout(char mot[], ptarbre arbre){
 	if(arbre == NULL){
 		int i = 0;
 		ptarbre nouveau;
+		ptarbre suivant;
 		while(mot[i] != '\0' && i<= 49){
-			nouveau = creer_noeud(mot[i], NULL, NULL);
-
-			cout << "bla" << i << endl;
+			nouveau = creer_noeud(mot[i], NULL, suivant);
+			nouveau = suivant;
 			i++;
 		}
+		affichage(mot, 0, nouveau);
+		cout << "arbre fait" << endl;
 		return nouveau;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){

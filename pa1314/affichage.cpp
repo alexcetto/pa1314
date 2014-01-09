@@ -33,7 +33,8 @@ int direction(int c){
         case 1:
             cout << "Entrez un mot : ";
             cin >> mot;
-            b2 = ajout(mot, NULL);
+            b2 = ajout(mot, b2);
+            cout << "Affichage en cours..." << endl;
             affichage(mot, 0, b2);
             break;
         case 2:
@@ -47,7 +48,9 @@ int direction(int c){
             affichage(mot, 0, constructionArbre(b1));
             break;
         case 5:
-            // init_mot("bla");
+            affichage(mot, 0, b1);
+            remove("dico.txt");
+            enregistrer_dico("dico.txt", mot, 0, b1);
             break;
         default:
             break;

@@ -50,3 +50,35 @@ ptarbre constructionArbre(ptarbre arbre)
 
 	return arbre;
 }
+
+void enregistrer_dico(char nom[], char mot[], int i, ptarbre arbre)
+{
+	// Ouverture du fichier
+	FILE* fichier = NULL;
+
+	fichier = fopen(nom, "a");
+	if (fichier != NULL)
+	{
+		if(arbre == NULL) 
+		{
+			return;
+		}
+		mot[i] = arbre->c;
+
+		if (mot[i] == '\0')
+		{
+			// Ecriture dans le fichier
+			fputs(mot, fichier);
+			fprintf(fichier, "\n");
+
+			enregistrer_dico(nom, mot, i, arbre->frere);
+		}
+		else
+		{
+			enregistrer_dico(nom, mot, i+1, arbre->fils);
+			enregistrer_dico(nom, mot, i, arbre->frere);
+			
+		}
+		fclose(fichier);
+	}
+}
