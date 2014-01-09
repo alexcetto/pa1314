@@ -111,9 +111,9 @@ ptarbre ajout(char mot[], ptarbre arbre){
 		int i = 0;
 		while(mot[i] != '\0'){
 			arbre->c = mot[i];
-			// Reconstruit le nouvel arbre
-			return arbre;
+			i++;
 		}
+		return arbre;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){
 		arbre->fils = ajout(&mot[1], arbre->fils);
