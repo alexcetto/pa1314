@@ -79,12 +79,28 @@ ptarbre creationarbre(){
 	return arbre;
 }
 
+ptarbre creer_noeud(char alpha, ptarbre frere, ptarbre fils)
+{
+	ptarbre aux;
+	aux = (ptarbre)malloc(sizeof(maillon));
+	aux->c = alpha;
+	aux->frere = frere;
+	aux->fils = fils;
+
+	return aux;
+}
+
+// Ca marche
 void affichage(char mot[], int i, ptarbre arbre){
 	if(arbre == NULL) return;
 
 	mot[i] = arbre->c;
 
-	if(arbre->c == '\0') cout << mot << endl;
+	if(arbre->c == '\0') 
+		{
+			cout << mot << endl;
+			affichage(mot, i, arbre->frere);
+		}
 	else {
 		affichage(mot, i+1, arbre->fils);
 		affichage(mot, i, arbre->frere);
@@ -109,11 +125,14 @@ bool recherche(char mot[], ptarbre arbre){
 ptarbre ajout(char mot[], ptarbre arbre){
 	if(arbre == NULL){
 		int i = 0;
-		while(mot[i] != '\0'){
-			arbre->c = mot[i];
+		ptarbre nouveau;
+		while(mot[i] != '\0' && i<= 49){
+			nouveau = creer_noeud(mot[i], NULL, NULL);
+
+			cout << "bla" << i << endl;
 			i++;
 		}
-		return arbre;
+		return nouveau;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){
 		arbre->fils = ajout(&mot[1], arbre->fils);

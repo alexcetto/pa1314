@@ -11,8 +11,10 @@
 
 #define LONGUEUR_MOT 50
 
-char* ini_mot(char mot[]);
-int constructionArbre(void);
+#include "arbres.h"
+
+// char* init_mot(char mot[]);
+ptarbre constructionArbre(ptarbre arbre);
 
 
 #endif

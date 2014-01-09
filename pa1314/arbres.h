@@ -16,7 +16,7 @@ typedef struct arbre{
     struct arbre * fils ;
 } maillon, * ptarbre  ;
 
-
+ptarbre creer_noeud(void);
 ptarbre creationArbreTest(void);
 ptarbre creationarbre();
 void affichage(char mot[], int i, ptarbre arbre);
