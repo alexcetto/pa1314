@@ -17,10 +17,12 @@ typedef struct arbre{
 } maillon, * ptarbre  ;
 
 
-
+ptarbre creationArbreTest(void);
 ptarbre creationarbre();
 void affichage(char mot[], int i, ptarbre arbre);
 bool recherche(char mot[], ptarbre arbre);
 ptarbre ajout(char mot[], ptarbre arbre);
+char* ini_mot(char mot[]);
+int constructionArbre(void);
 
 #endif
