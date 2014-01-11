@@ -131,9 +131,10 @@ ptarbre ajout(char mot[], ptarbre arbre){
 			nouveau = creer_noeud(mot[i], NULL, suivant);
 			nouveau = suivant;
 			i++;
+			cout << i << endl;
 		}
-		affichage(mot, 0, nouveau);
 		cout << "arbre fait" << endl;
+		
 		return nouveau;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){
