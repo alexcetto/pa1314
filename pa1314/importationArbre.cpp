@@ -35,7 +35,7 @@ ptarbre constructionArbre(ptarbre arbre)
 	{
 		cout << "L'ouverture a réussi !\n";
 		char *mot;
-		// mot = init_mot(mot);
+		mot = NULL;
 			while(fgets(mot, LONGUEUR_MOT, dico) != NULL)
 			{
 				arbre = ajout(mot, arbre);

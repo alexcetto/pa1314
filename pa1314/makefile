@@ -11,10 +11,10 @@ CXXFLAGS = -Wall
  
  
 # all
-all: main.o arbres.o affichage.o importationArbre.o
+all: main.o arbres.o affichage.o importationArbre.o traitement.o
 	$(CXX) $^ -o exec $(CXXFLAGS)
  
-main.o: affichage.h arbres.h importationArbre.h
+main.o: affichage.h arbres.h importationArbre.h traitement.h
  
 %.o: %.cpp
 	$(CXX) -c $< -o $@ $(CXXFLAGS)

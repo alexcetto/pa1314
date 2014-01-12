@@ -10,6 +10,6 @@
 #define projet_algo_affichage_h
 
 void menu();
-int direction(int c);
+void direction(int c);
 
 #endif

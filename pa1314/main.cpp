@@ -9,6 +9,7 @@
 #include <iostream>
 #include "arbres.h"
 #include "affichage.h"
+#include "traitement.h"
 #include "importationArbre.h"
 
 using namespace std;
@@ -17,7 +18,6 @@ int main(int argc, const char * argv[])
 {
 
     menu();
-    cout << "Hello, World!\n";
     return 0;
 }
 

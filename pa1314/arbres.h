@@ -21,6 +21,7 @@ ptarbre creationArbreTest(void);
 ptarbre creationarbre();
 void affichage(char mot[], int i, ptarbre arbre);
 bool recherche(char mot[], ptarbre arbre);
+bool recherchePartielle(char mot[], ptarbre arbre);
 ptarbre ajout(char mot[], ptarbre arbre);
 
 #endif

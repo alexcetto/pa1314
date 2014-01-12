@@ -7,6 +7,7 @@
 //
 #include <iostream>
 #include "arbres.h"
+#include "traitement.h"
 using namespace std;
 
 ptarbre creationArbreTest(void)
@@ -75,7 +76,7 @@ ptarbre creationArbreTest(void)
 }
 
 ptarbre creationarbre(){
-	ptarbre arbre = NULL;
+	ptarbre arbre = (ptarbre)malloc(sizeof(maillon));
 	return arbre;
 }
 
@@ -122,21 +123,34 @@ bool recherche(char mot[], ptarbre arbre){
 	}
 }
 
-ptarbre ajout(char mot[], ptarbre arbre){
-	if(arbre == NULL){
-		int i = 0;
-		ptarbre nouveau;
-		ptarbre suivant;
-		while(mot[i] != '\0' && i<= 49){
-			nouveau = creer_noeud(mot[i], NULL, suivant);
-			nouveau = suivant;
+bool recherchePartielle(char mot[], ptarbre arbre){
+	if(arbre == NULL) return false;							// CAS 1 : l'arbre est vide, retourne au main
+
+	int i = 0;
+	while(mot[i] != '\0') {
+		if(mot[i] == arbre->c){
 			i++;
-			cout << i << endl;
+			arbre = arbre->fils;
+		} else {
+			arbre = arbre->frere;
 		}
-		cout << "arbre fait" << endl;
-		
-		return nouveau;
 	}
+	affichage(mot, i, arbre);
+	return 1;
+}
+
+ptarbre ajout(char mot[], ptarbre arbre){
+	cout << "test 1" << endl;
+	if(arbre == NULL && mot[0] != '\0'){
+		arbre = creationarbre();
+		arbre->c     = mot[0];
+		arbre->fils  = NULL;
+		arbre->frere = NULL;
+
+		cout << &arbre->c << endl;
+		return ajout(&mot[1], arbre->fils);
+	}
+
 	if(mot[0] == arbre->c && mot[0] != '\0'){
 		arbre->fils = ajout(&mot[1], arbre->fils);
 	} else {
@@ -147,6 +161,7 @@ ptarbre ajout(char mot[], ptarbre arbre){
 			return arbre; 
 		}
 	}
+	return arbre;
 }
 
 
