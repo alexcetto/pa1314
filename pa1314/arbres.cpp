@@ -125,7 +125,6 @@ bool recherche(char mot[], ptarbre arbre){
 
 bool recherchePartielle(char mot[], ptarbre arbre){
 	if(arbre == NULL) return false;							// CAS 1 : l'arbre est vide, retourne au main
-
 	int i = 0;
 	while(mot[i] != '\0') {
 		if(mot[i] == arbre->c){
