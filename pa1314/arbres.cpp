@@ -139,18 +139,32 @@ bool recherchePartielle(char mot[], ptarbre arbre){
 	return 1;
 }
 
+ptarbre ajout_colonne(char mot[], ptarbre arbre)
+{
+	if (arbre != NULL) return arbre;
+
+	int i = 0;
+	ptarbre noeud_courant = arbre;
+	while(mot[i] != '\0')
+	{	
+		ptarbre suivant = creationarbre();
+		noeud_courant = creer_noeud(mot[i], NULL, suivant);
+		cout << noeud_courant->c << endl;
+		noeud_courant = suivant;
+		i++;
+	}
+	 // = '\0';
+	return arbre;
+}
+
 ptarbre ajout(char mot[], ptarbre arbre){
 	cout << "test 1" << endl;
 	if(arbre == NULL && mot[0] != '\0'){
-		arbre = creationarbre();
-		arbre->c     = mot[0];
-		arbre->fils  = NULL;
-		arbre->frere = NULL;
 
-		cout << &arbre->c << endl;
-		return ajout(&mot[1], arbre->fils);
+		arbre = ajout_colonne(mot, arbre);
+
+		return arbre;
 	}
-
 	if(mot[0] == arbre->c && mot[0] != '\0'){
 		arbre->fils = ajout(&mot[1], arbre->fils);
 	} else {

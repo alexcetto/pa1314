@@ -39,7 +39,7 @@ void direction(int c){
             cout << "Entrez un mot : ";
             cin >> mot;
             *mot = formatage(mot);
-            ajout(mot, b2);
+            b2 = ajout(mot, b2);
             cout << "Affichage en cours..." << endl;
             affichage(mot, 0, b2);
             break;
