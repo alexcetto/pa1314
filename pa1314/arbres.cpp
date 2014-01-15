@@ -146,7 +146,6 @@ ptarbre ajout_colonne(char mot[], ptarbre arbre)
 	ptarbre noeud_courant, suivant ;
 	// cas i = 0
 	noeud_courant = creer_noeud(mot[i], NULL, NULL);
-	cout << noeud_courant->c << endl;
 	arbre = noeud_courant ;
 	i++ ;
 	// i : premiere lettre non traitée
@@ -154,14 +153,12 @@ ptarbre ajout_colonne(char mot[], ptarbre arbre)
 	while(mot[i] != '\0')
 	{	
 		suivant = creer_noeud(mot[i], NULL, NULL);
-		cout << suivant->c << endl;
 		noeud_courant->fils = suivant;
 		noeud_courant->frere = NULL ;
 		noeud_courant = suivant;
 		i++;
 	}
 	suivant = creer_noeud(mot[i], NULL, NULL);
-	cout << suivant->c << endl;
 	noeud_courant->fils = suivant;
 	noeud_courant->frere = NULL ;
 	return arbre;
@@ -169,7 +166,6 @@ ptarbre ajout_colonne(char mot[], ptarbre arbre)
 
 ptarbre ajout(char mot[], ptarbre arbre){
 	if(arbre == NULL && mot[0] != '\0'){
-		cout << "test 1" << endl;
 		arbre = ajout_colonne(mot, arbre);
 
 		return arbre;

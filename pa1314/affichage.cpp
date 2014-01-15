@@ -39,7 +39,7 @@ void direction(int c){
             cout << "Entrez un mot : ";
             cin >> mot;
             *mot = formatage(mot);
-            b2 = ajout(mot, b2);
+            b2 = ajout(mot, b1);
             cout << "Affichage en cours..." << endl;
             affichage(mot, 0, b2);
             break;
@@ -53,7 +53,7 @@ void direction(int c){
             break;
         case 4:
             cout << "Importation de dico.txt en cours..." << endl;
-            affichage(mot, 0, constructionArbre(b1));
+            affichage(mot, 0, constructionArbre());
             break;
         case 5:
             affichage(mot, 0, b1);
