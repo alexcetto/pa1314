@@ -25,18 +25,28 @@ using namespace std;
 // }
 
 // Construction de l'arbre à partir du .txt
-ptarbre constructionArbre(ptarbre arbre) 
+ptarbre constructionArbre(void) 
 {
 	FILE* dico = NULL;
+	ptarbre arbre;
 
 	dico = fopen("/Users/alex/C_C++/projet_algo_xcode/pa1314/dico_complet.txt", "r");
 
 	if (dico != NULL)
 	{
 		cout << "L'ouverture a réussi !\n";
+<<<<<<< HEAD
 		char mot[LONGUEUR_MOT];
 			while(fgets(mot, LONGUEUR_MOT, dico) != NULL)
+=======
+		char mot[15];
+		// mot = NULL;
+		cout << "Test 1" << endl;
+			while(fgets(mot, 15, dico) != NULL)
+>>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
 			{
+				cout << "Test 2" << endl;
+				printf(mot);
 				arbre = ajout(mot, arbre);
 			}
 		fclose(dico);
@@ -76,6 +86,6 @@ void enregistrer_dico(char nom[], char mot[], int i, ptarbre arbre)
 			enregistrer_dico(nom, mot, i, arbre->frere);
 			
 		}
-		fclose(fichier);
+	fclose(fichier);
 	}
 }
