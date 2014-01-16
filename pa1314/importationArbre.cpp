@@ -25,25 +25,22 @@ using namespace std;
 // }
 
 // Construction de l'arbre à partir du .txt
-ptarbre constructionArbre(void) 
+ptarbre constructionArbre(ptarbre arbre) 
 {
 	FILE* dico = NULL;
-	ptarbre arbre;
+	// ptarbre arbre;
 
 	dico = fopen("dico.txt", "r");
 
 	if (dico != NULL)
 	{
 		cout << "L'ouverture a réussi !\n";
-		char mot[15];
-		// mot = NULL;
-		cout << "Test 1" << endl;
-			while(fgets(mot, 15, dico) != NULL)
+		char mot[50];
+			while(fgets(mot, sizeof mot, dico) != NULL) 
 			{
-				cout << "Test 2" << endl;
-				printf(mot);
 				arbre = ajout(mot, arbre);
 			}
+			cout << endl;
 		fclose(dico);
 	}
 	else
@@ -72,9 +69,9 @@ void enregistrer_dico(char nom[], char mot[], int i, ptarbre arbre)
 		if (mot[i] == '\0')
 		{
 			// Ecriture dans le fichier
-			fputs(mot, fichier);
 			fprintf(fichier, "\n");
-
+			fputs(mot, fichier);
+			
 			enregistrer_dico(nom, mot, i, arbre->frere);
 		}
 		else

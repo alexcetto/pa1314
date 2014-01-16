@@ -14,7 +14,7 @@
 #include "arbres.h"
 
 // char* init_mot(char mot[]);
-ptarbre constructionArbre(void);
+ptarbre constructionArbre(ptarbre arbre);
 void enregistrer_dico(char nom[], char mot[], int i, ptarbre arbre);
 
 

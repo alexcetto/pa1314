@@ -7,6 +7,7 @@
 //
 #include <iostream>
 #include "arbres.h"
+#include "importationArbre.h"
 #include "traitement.h"
 using namespace std;
 
@@ -158,7 +159,8 @@ ptarbre ajout_colonne(char mot[], ptarbre arbre)
 		noeud_courant = suivant;
 		i++;
 	}
-	suivant = creer_noeud(mot[i], NULL, NULL);
+	// Ajout du '\0' à la fin du mot
+	suivant = creer_noeud('\0', NULL, NULL);
 	noeud_courant->fils = suivant;
 	noeud_courant->frere = NULL ;
 	return arbre;
@@ -168,6 +170,7 @@ ptarbre ajout(char mot[], ptarbre arbre){
 	if(arbre == NULL && mot[0] != '\0'){
 		arbre = ajout_colonne(mot, arbre);
 
+		// enregistrer_dico("dico.txt", mot, 0, arbre);
 		return arbre;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){
@@ -176,8 +179,12 @@ ptarbre ajout(char mot[], ptarbre arbre){
 		if(mot[0] > arbre->c){
 			arbre->frere = ajout(mot, arbre->frere);
 		} else if(mot[0] < arbre->c) {
-			arbre->frere = arbre;
-			return arbre; 
+			ptarbre nouveau = creer_noeud(mot[0], arbre, NULL);
+			ajout_colonne(&mot[1], nouveau);
+			// arbre->frere = arbre;
+
+			// enregistrer_dico("dico.txt", mot, 0, arbre);
+			return nouveau; 
 		}
 	}
 	return arbre;

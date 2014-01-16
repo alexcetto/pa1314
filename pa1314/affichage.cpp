@@ -49,11 +49,11 @@ void direction(int c){
         	recherchePartielle(mot, b1);
             break;
         case 3:
-            affichage(mot, 0, b1);
+            affichage(mot, 0, b2);
             break;
         case 4:
             cout << "Importation de dico.txt en cours..." << endl;
-            affichage(mot, 0, constructionArbre());
+            affichage(mot, 0, constructionArbre(b2));
             break;
         case 5:
             affichage(mot, 0, b1);
