@@ -36,13 +36,19 @@ ptarbre constructionArbre(void)
 	{
 		cout << "L'ouverture a réussi !\n";
 <<<<<<< HEAD
+<<<<<<< HEAD
 		char mot[LONGUEUR_MOT];
 			while(fgets(mot, LONGUEUR_MOT, dico) != NULL)
 =======
+=======
+>>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
 		char mot[15];
 		// mot = NULL;
 		cout << "Test 1" << endl;
 			while(fgets(mot, 15, dico) != NULL)
+<<<<<<< HEAD
+>>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
+=======
 >>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
 			{
 				cout << "Test 2" << endl;

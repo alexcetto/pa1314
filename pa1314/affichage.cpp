@@ -57,7 +57,11 @@ void direction(int c){
         case 4:
             cout << "Importation de dico.txt en cours..." << endl;
 <<<<<<< HEAD
+<<<<<<< HEAD
             affichage(mot, 0, constructionArbre(b2));
+=======
+            affichage(mot, 0, constructionArbre());
+>>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
 =======
             affichage(mot, 0, constructionArbre());
 >>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
