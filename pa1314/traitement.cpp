@@ -12,7 +12,7 @@
 using namespace std;
 
 char formatage(char mot[]){
-	int i = 0;
+	unsigned long i = 0;
 	i = strlen(mot);
 	cout << "strlen : " << i << endl;
 	mot[i+1] = '\0';
