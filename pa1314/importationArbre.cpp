@@ -29,21 +29,18 @@ ptarbre constructionArbre(ptarbre arbre)
 {
 	FILE* dico = NULL;
 
-	dico = fopen("dico.txt", "r");
+	dico = fopen("/Users/alex/C_C++/projet_algo_xcode/pa1314/dico_complet.txt", "r");
 
 	if (dico != NULL)
 	{
 		cout << "L'ouverture a réussi !\n";
-		char *mot;
-		mot = NULL;
+		char mot[LONGUEUR_MOT];
 			while(fgets(mot, LONGUEUR_MOT, dico) != NULL)
 			{
 				arbre = ajout(mot, arbre);
 			}
 		fclose(dico);
-	}
-	else
-	{
+	} else {
 		cout << "Echec de l'ouverture....\n";
 		arbre = NULL;
 	}

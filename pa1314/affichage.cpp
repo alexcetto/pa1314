@@ -11,17 +11,20 @@
 #include "importationArbre.h"
 #include "string.h"
 #include "traitement.h"
+#include "word.h"
 #include <iostream>
 
 using namespace std;
 
 void menu(){
+    //system("clear");
 	int choix = 0;
 	cout << "1. Ajouter un mot" << endl;
 	cout << "2. Fonctions de mots" << endl;
 	cout << "3. Fonctions d'écriture" << endl;
     cout << "4. Importation d'un dico" << endl;
     cout << "5. Enregistrer l'arbre dans un dico" << endl;
+    cout << "6. Test de l'écriture de mot" << endl;
 	cout << "0. Quitter" << endl;
 	cout << "Indiquez votre choix" << endl; 
 	cin >> choix;
@@ -53,7 +56,7 @@ void direction(int c){
             break;
         case 4:
             cout << "Importation de dico.txt en cours..." << endl;
-            affichage(mot, 0, constructionArbre(b1));
+            affichage(mot, 0, constructionArbre(b2));
             break;
         case 5:
             affichage(mot, 0, b1);
@@ -62,8 +65,9 @@ void direction(int c){
             remove(nom);
             enregistrer_dico(nom, mot, 0, b1);
             break;
+        case 6:
+            writeword();
         default:
-        	system("cls");
         	menu();
             break;
     }
