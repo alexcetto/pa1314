@@ -16,73 +16,70 @@
 
 using namespace std;
 
-void menu(){
+void menu(ptarbre arbre){
     //system("clear");
 	int choix = 0;
 	cout << "1. Ajouter un mot" << endl;
-	cout << "2. Fonctions de mots" << endl;
-	cout << "3. Fonctions d'écriture" << endl;
+	cout << "2. Recherche partielle" << endl;
+	cout << "3. Affichage" << endl;
     cout << "4. Importation d'un dico" << endl;
-    cout << "5. Enregistrer l'arbre dans un dico" << endl;
+    cout << "5. Enregistrement du dico" << endl;
     cout << "6. Test de l'écriture de mot" << endl;
 	cout << "0. Quitter" << endl;
 	cout << "Indiquez votre choix" << endl; 
 	cin >> choix;
-	direction(choix);
+	direction(choix, arbre);
 }
 
-void direction(int c){
+void direction(int c, ptarbre b2){
 	char mot[27];
     char nom[50];
-    ptarbre b1 = creationArbreTest();
-    ptarbre b2 = NULL;
+    // ptarbre b1 = creationArbreTest();
+    // ptarbre b2 = NULL;
 	switch (c) {
 		case 0: return; 
         case 1:
             cout << "Entrez un mot : ";
             cin >> mot;
             *mot = formatage(mot);
-            b2 = ajout(mot, b1);
+            b2 = ajout(mot, b2);
             cout << "Affichage en cours..." << endl;
             affichage(mot, 0, b2);
+            cout << "Entrez le nom du fichier destination :" << endl;
+            cin >> nom;
+            cout << "Sauvegarde en cours..." << endl;
+            enregistrer_dico(nom, mot, 0, b2);
             break;
         case 2:
         	cout << "Entrez la base du mot à chercher : ";
         	cin >> mot;
-        	recherchePartielle(mot, b1);
+        	recherchePartielle(mot, b2);
             break;
         case 3:
             affichage(mot, 0, b2);
             break;
         case 4:
+            cout << "Entrez le nom du dictionnaire à importer :" <<endl;
+            cin >> nom;
             cout << "Importation de dico.txt en cours..." << endl;
-<<<<<<< HEAD
-            affichage(mot, 0, constructionArbre(b2));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            affichage(mot, 0, constructionArbre(b2));
-=======
-            affichage(mot, 0, constructionArbre());
->>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
-=======
-            affichage(mot, 0, constructionArbre());
->>>>>>> 6b1f1f63f29a28586b7dc2184c05c352fc1d82fd
->>>>>>> 234006c0abedd87313e21ca703c39735b5562b7a
+            b2 = constructionArbre(nom, b2);
+            cout << "Affichage du nouvel arbre..." << endl;
+            affichage(mot, 0, b2);
             break;
         case 5:
-            affichage(mot, 0, b1);
-            cout << "Entrez le nom du dico :" <<endl;
+            cout << "Entrez le nom du fichier destination :" << endl;
             cin >> nom;
+            affichage(mot, 0, b2);
             remove(nom);
-            enregistrer_dico(nom, mot, 0, b1);
+            cout << "Enregistrement en cours..." << endl;
+            enregistrer_dico(nom, mot, 0, b2);
             break;
         case 6:
             writeword();
         default:
-        	menu();
+        	menu(b2);
             break;
     }
-    menu();
+    menu(b2);
     return;
 }

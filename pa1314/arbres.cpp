@@ -169,8 +169,6 @@ ptarbre ajout_colonne(char mot[], ptarbre arbre)
 ptarbre ajout(char mot[], ptarbre arbre){
 	if(arbre == NULL && mot[0] != '\0'){
 		arbre = ajout_colonne(mot, arbre);
-
-		// enregistrer_dico("dico.txt", mot, 0, arbre);
 		return arbre;
 	}
 	if(mot[0] == arbre->c && mot[0] != '\0'){
@@ -182,8 +180,6 @@ ptarbre ajout(char mot[], ptarbre arbre){
 			ptarbre nouveau = creer_noeud(mot[0], arbre, NULL);
 			ajout_colonne(&mot[1], nouveau);
 			// arbre->frere = arbre;
-
-			// enregistrer_dico("dico.txt", mot, 0, arbre);
 			return nouveau; 
 		}
 	}

@@ -16,5 +16,14 @@ char formatage(char mot[]){
 	i = strlen(mot);
 	cout << "strlen : " << i << endl;
 	mot[i+1] = '\0';
+
+	int j = 0;
+	for(j=0 ; mot[i] = '\0' ; j++)
+	{
+		if (isalpha(mot[j]))
+		{
+			mot[j] = tolower(mot[j]);
+		}
+	}
 	return  *mot;
 }

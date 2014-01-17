@@ -16,8 +16,8 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-
-    menu();
+	ptarbre b2 = NULL;
+    menu(b2);
     return 0;
 }
 

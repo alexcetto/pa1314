@@ -9,7 +9,9 @@
 #ifndef projet_algo_affichage_h
 #define projet_algo_affichage_h
 
-void menu();
-void direction(int c);
+#include "arbres.h"
+
+void menu(ptarbre arbre);
+void direction(int c, ptarbre arbre);
 
 #endif
