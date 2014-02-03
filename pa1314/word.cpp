@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <ctype.h> // Fonctions sur les caractères
+//#include <ncurses.h>
 #include "importationArbre.h"
 #include "arbres.h"
 #include "word.h"
@@ -65,14 +66,14 @@ void showSearch(wordStart nword){
 void writeword(){
     wordStart newWord = createWord();
     
-    initscr();
+    //initscr();
     
     int i = 0;
     char c = 'c';
     //while (!isspace(c) || !isblank(c)) {
     while (c != '*') {
-        //cin >> c;
-        c = getchar();
+        cin >> c;
+        //c = getchar();
         newWord->mot[i] = c;
         i++;
         if(c == '.'){
@@ -89,7 +90,7 @@ void writeword(){
     
     writeword();
     //readWord(newWord);
-    endwin();
+    //endwin();
 }
 
 
