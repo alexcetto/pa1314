@@ -6,7 +6,7 @@
  
 # définition des variables
 CXX = g++
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall  -lcurses
  
  
  
@@ -17,7 +17,7 @@ all: main.o arbres.o affichage.o importationArbre.o traitement.o word.o
 main.o: affichage.h arbres.h importationArbre.h traitement.h word.h
  
 %.o: %.cpp
-	$(CXX) -c $< -o $@ $(CXXFLAGS) -lncurses
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
  
  
 # clean

@@ -20,7 +20,6 @@ wordStart sentence[proust] = {};
 char dico[] = "/Users/alex/C_C++/projet_algo_xcode/pa1314/dico_complet2.txt";
 ptarbre truc = constructionArbre(dico, truc);
 
-
 // Allocation mémoire pour un mot.
 wordStart createWord(){
     wordStart newWord = (wordStart)malloc(sizeof(wordStart));
@@ -42,7 +41,7 @@ void readSentence(wordStart sentence[]){
 }
 
 // Enregistre la phrase au fur et à mesure en ajoutant les mots dans le tableau
-// Méthode en prévision de l'algo  de complétion par placement dans la phrase
+// Méthode en prévision de l'algo  de complétion par placement dans la phrase ?
 void writeSentence(wordStart nword){
     int i = 0;
     // n'importe quoi, à refaire
@@ -56,9 +55,14 @@ void writeSentence(wordStart nword){
 
 void showSearch(wordStart nword){
     char *localword = nword->mot;
-    *localword = formatage(localword);
-    cout << recherchePartielle(localword, truc);
     
+    ptarbre miniarbre = creationarbre();
+    
+    *localword = formatage(localword);
+    cout << "Mots affichés : "<< endl;
+    recherchePartielle(localword, truc, 1, miniarbre);
+    affichage(localword, NULL, miniarbre);
+    free(miniarbre);
 }
 
 // Simple fonction de saisie pour entrer chaque mot.

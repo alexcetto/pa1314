@@ -57,7 +57,7 @@ void direction(int c, ptarbre b2){
         case 2:
         	cout << "Entrez la base du mot à chercher : ";
         	cin >> mot;
-        	recherchePartielle(mot, truc1);
+        	recherchePartielle(mot, truc1, NULL, NULL);
             break;
         case 3:
             affichage(mot, 0, b2);

@@ -20,8 +20,9 @@ ptarbre creer_noeud(char alpha, ptarbre frere, ptarbre fils);
 ptarbre creationArbreTest(void);
 ptarbre creationarbre();
 void affichage(char mot[], int i, ptarbre arbre);
+void stockage(char mot[], int i, ptarbre arbre, ptarbre miniarbre);
 bool recherche(char mot[], ptarbre arbre);
-bool recherchePartielle(char mot[], ptarbre arbre);
+bool recherchePartielle(char mot[], ptarbre arbre, int option, ptarbre miniarbre);
 ptarbre ajout(char mot[], ptarbre arbre);
 
 #endif

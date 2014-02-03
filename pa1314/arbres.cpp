@@ -109,6 +109,21 @@ void affichage(char mot[], int i, ptarbre arbre){
 		affichage(mot, i, arbre->frere);
 	}
 }
+void stockage(char mot[], int i, ptarbre arbre, ptarbre miniarbre){
+	if(arbre == NULL) return;
+    
+	mot[i] = arbre->c;
+    
+	if(arbre->c == '\0')
+    {
+        ajout(mot, miniarbre);
+        stockage(mot, i, arbre->frere, miniarbre);
+    }
+	else {
+		stockage(mot, i+1, arbre->fils,miniarbre);
+		stockage(mot, i, arbre->frere, miniarbre);
+	}
+}
 
 bool recherche(char mot[], ptarbre arbre){
 	if(arbre == NULL) return false;
@@ -126,7 +141,7 @@ bool recherche(char mot[], ptarbre arbre){
 	}
 }
 
-bool recherchePartielle(char mot[], ptarbre arbre){
+bool recherchePartielle(char mot[], ptarbre arbre,int option, ptarbre miniarbre){
 	if(arbre == NULL) return false;						// CAS 1 : l'arbre est vide, retourne au main
     int i = 0;
 	while(mot[i] != '\0') {
@@ -138,7 +153,10 @@ bool recherchePartielle(char mot[], ptarbre arbre){
 			arbre = arbre->frere;
 		}
 	}
-	affichage(mot, i, arbre);
+    if (option == 1) {
+        stockage(mot, i, arbre, miniarbre);
+    } else
+        affichage(mot, i, arbre);
 	return 1;
 }
 
