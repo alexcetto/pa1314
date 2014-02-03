@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Alex&Olivier. All rights reserved.
 //
 #include <iostream>
+#include <ncurses.h>
 #include "arbres.h"
 #include "importationArbre.h"
 #include "traitement.h"
@@ -111,6 +112,7 @@ void affichage(char mot[], int i, ptarbre arbre){
 
 bool recherche(char mot[], ptarbre arbre){
 	if(arbre == NULL) return false;
+    if(!isalpha(mot[0])) return false;
 	if(mot[0] == arbre->c){
 		if(mot[0] == '\0') return true;
 		else return recherche(&mot[1], arbre->fils);
@@ -125,9 +127,10 @@ bool recherche(char mot[], ptarbre arbre){
 }
 
 bool recherchePartielle(char mot[], ptarbre arbre){
-	if(arbre == NULL) return false;							// CAS 1 : l'arbre est vide, retourne au main
-	int i = 0;
+	if(arbre == NULL) return false;						// CAS 1 : l'arbre est vide, retourne au main
+    int i = 0;
 	while(mot[i] != '\0') {
+        if(!isalpha(mot[i])) return false;
 		if(mot[i] == arbre->c){
 			i++;
 			arbre = arbre->fils;

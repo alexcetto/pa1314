@@ -16,6 +16,10 @@
 
 using namespace std;
 
+//test
+char dicob[] = "/Users/alex/C_C++/projet_algo_xcode/pa1314/dico_complet2.txt";
+ptarbre truc1 = constructionArbre(dicob, truc1);
+
 void menu(ptarbre arbre){
     //system("clear");
 	int choix = 0;
@@ -33,7 +37,7 @@ void menu(ptarbre arbre){
 
 void direction(int c, ptarbre b2){
 	char mot[27];
-    char nom[50];
+    char nom[500];
     // ptarbre b1 = creationArbreTest();
     // ptarbre b2 = NULL;
 	switch (c) {
@@ -53,7 +57,7 @@ void direction(int c, ptarbre b2){
         case 2:
         	cout << "Entrez la base du mot à chercher : ";
         	cin >> mot;
-        	recherchePartielle(mot, b2);
+        	recherchePartielle(mot, truc1);
             break;
         case 3:
             affichage(mot, 0, b2);

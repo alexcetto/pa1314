@@ -17,7 +17,7 @@ all: main.o arbres.o affichage.o importationArbre.o traitement.o word.o
 main.o: affichage.h arbres.h importationArbre.h traitement.h word.h
  
 %.o: %.cpp
-	$(CXX) -c $< -o $@ $(CXXFLAGS)
+	$(CXX) -c $< -o $@ $(CXXFLAGS) -lncurses
  
  
 # clean

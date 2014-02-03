@@ -7,13 +7,17 @@
 //
 
 #include <iostream>
+#include <ctype.h> // Fonctions sur les caractères
 #include "importationArbre.h"
 #include "arbres.h"
 #include "word.h"
-#include <ctype.h>
+#include "traitement.h"
 using namespace std;
 
-wordStart sentence[10] = {};
+
+wordStart sentence[proust] = {};
+char dico[] = "/Users/alex/C_C++/projet_algo_xcode/pa1314/dico_complet2.txt";
+ptarbre truc = constructionArbre(dico, truc);
 
 
 // Allocation mémoire pour un mot.
@@ -22,14 +26,16 @@ wordStart createWord(){
     return newWord;
 }
 
-
 // Ecrit dans la console tous les mots de la phrase
-void readSentence(wordStart sentence){
+void readSentence(wordStart sentence[]){
     int i = 0;
-    wordStart temp = NULL;
-    while(i < 50){
-        temp = &sentence[i];
-        cout << temp->mot;
+    //wordStart temp[] = {};
+    while(i < proust && sentence[i] != NULL){
+        if(i != 0){
+            cout << ' ';
+        }
+        //temp = &sentence[i];
+        cout << sentence[i]->mot;
         i++;
     }
 }
@@ -43,30 +49,51 @@ void writeSentence(wordStart nword){
         i++;
     }
     sentence[i] = nword;
-    readSentence(nword);
+    //readSentence(nword);
+}
+
+
+void showSearch(wordStart nword){
+    char *localword = nword->mot;
+    *localword = formatage(localword);
+    cout << recherchePartielle(localword, truc);
+    
 }
 
 // Simple fonction de saisie pour entrer chaque mot.
 // Dès qu'un //(espace) étoile est saisi, le programme écrit le mot dans la phrase.
 void writeword(){
     wordStart newWord = createWord();
+    
+    initscr();
+    
     int i = 0;
     char c = 'c';
-    
     //while (!isspace(c) || !isblank(c)) {
     while (c != '*') {
-        cin >> c;
+        //cin >> c;
+        c = getchar();
         newWord->mot[i] = c;
         i++;
+        if(c == '.'){
+            return;                 // Transformer en phrase suivante
+        } else if(c == '#'){
+            readSentence(sentence);
+        }
     }
     
     newWord->mot[i-1] = '\0';
+    newWord->nblettres = i;
+    showSearch(newWord);
     writeSentence(newWord);
     
+    writeword();
     //readWord(newWord);
+    endwin();
 }
 
-// Un programme qui lit les mot qu'on lui envoie.
+
+// Un programme qui lit les mots qu'on lui envoie.
 void readWord(wordStart nword){
     int length = (int)strlen(nword->mot);
     char c = 'c';
@@ -77,5 +104,4 @@ void readWord(wordStart nword){
         j++;
     }
     cout << endl;
-
 }
