@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <ctype.h> // Fonctions sur les caractères
-//#include <ncurses.h>
+#include <ncurses.h>
 #include "importationArbre.h"
 #include "arbres.h"
 #include "word.h"
@@ -45,7 +45,7 @@ void readSentence(wordStart sentence[]){
 void writeSentence(wordStart nword){
     int i = 0;
     // n'importe quoi, à refaire
-    while (sentence[i] != NULL) {
+    while (sentence[i] != 0) {
         i++;
     }
     sentence[i] = nword;
@@ -61,40 +61,46 @@ void showSearch(wordStart nword){
     *localword = formatage(localword);
     cout << "Mots affichés : "<< endl;
     recherchePartielle(localword, truc, 1, miniarbre);
-    affichage(localword, NULL, miniarbre);
+    affichage(localword, 0, miniarbre);
     free(miniarbre);
 }
 
 // Simple fonction de saisie pour entrer chaque mot.
-// Dès qu'un //(espace) étoile est saisi, le programme écrit le mot dans la phrase.
 void writeword(){
     wordStart newWord = createWord();
     
-    //initscr();
-    
+    initscr();
+    cbreak();
     int i = 0;
-    char c = 'c';
-    //while (!isspace(c) || !isblank(c)) {
-    while (c != '*') {
-        cin >> c;
-        //c = getchar();
-        newWord->mot[i] = c;
-        i++;
-        if(c == '.'){
-            return;                 // Transformer en phrase suivante
-        } else if(c == '#'){
-            readSentence(sentence);
+    int c = 0;
+
+    while (c != 46) { // Si le caractère est un point, fin de la phrase
+        printw("********************** Programme de saisie de texte *******************");
+        printw("\n");
+        printw("** Entrez lettre après lettre pour voir les différentes propositions **");
+        printw("\n");
+        printw("******** Un espace termine le mot et un point termine la phrase *******");
+        printw("\n");
+        printw("***** Les chiffres 1 à 5 permettent de choisir la bonne complétion ****");
+        printw("\n");
+        
+        c = getch();
+        if(c >= 97 && c <= 122){ // Si c'est une lettre de l'alphabet
+            char aux = (char)c;
+            newWord->mot[i] = aux;
+            showSearch(newWord);    // Fais une recherche de complétion
+            i++;
+        } else if(c == 32){ // Espace signifie mot terminé
+            newWord->nblettres = i;
+            newWord->mot[i-1] = '\0';
+            writeSentence(newWord);
+            writeword();
+        } else if(c >= 1 && c <= 5){
+            // Choix de la complétion
         }
+        refresh();
     }
-    
-    newWord->mot[i-1] = '\0';
-    newWord->nblettres = i;
-    showSearch(newWord);
-    writeSentence(newWord);
-    
-    writeword();
-    //readWord(newWord);
-    //endwin();
+    endwin();
 }
 
 

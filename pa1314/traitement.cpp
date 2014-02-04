@@ -14,11 +14,10 @@ using namespace std;
 char formatage(char mot[]){
 	unsigned long i = 0;
 	i = strlen(mot);
-	cout << "strlen : " << i << endl;
 	mot[i+1] = '\0';
 
 	int j = 0;
-	for(j=0 ; mot[i] = '\0' ; j++)
+	for(j=0 ; mot[i] == '\0' ; j++)
 	{
 		if (isalpha(mot[j]))
 		{
