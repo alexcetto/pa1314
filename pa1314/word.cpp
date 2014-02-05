@@ -70,20 +70,19 @@ void writeword(){
     wordStart newWord = createWord();
     
     initscr();
+    printw("********************** Programme de saisie de texte *******************");
+    printw("\n");
+    printw("** Entrez lettre après lettre pour voir les différentes propositions **");
+    printw("\n");
+    printw("******** Un espace termine le mot et un point termine la phrase *******");
+    printw("\n");
+    printw("***** Les chiffres 1 à 5 permettent de choisir la bonne complétion ****");
+    printw("\n");
     cbreak();
     int i = 0;
     int c = 0;
 
     while (c != 46) { // Si le caractère est un point, fin de la phrase
-        printw("********************** Programme de saisie de texte *******************");
-        printw("\n");
-        printw("** Entrez lettre après lettre pour voir les différentes propositions **");
-        printw("\n");
-        printw("******** Un espace termine le mot et un point termine la phrase *******");
-        printw("\n");
-        printw("***** Les chiffres 1 à 5 permettent de choisir la bonne complétion ****");
-        printw("\n");
-        
         c = getch();
         if(c >= 97 && c <= 122){ // Si c'est une lettre de l'alphabet
             char aux = (char)c;
@@ -95,9 +94,12 @@ void writeword(){
             newWord->mot[i-1] = '\0';
             writeSentence(newWord);
             writeword();
-        } else if(c >= 1 && c <= 5){
+        } else if(c >= 49 && c <= 53){
+            c = c % 48; // Obtenir le choix correspondant à la touche tapée
+            cout << c;
             // Choix de la complétion
-        }
+        }// else if(c == ) // Suppr supprime la dernière lettre
+        //else if // echappe retoune à main et écrit dans le fichier output
         refresh();
     }
     endwin();
